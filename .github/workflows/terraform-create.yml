@@ -45,7 +45,7 @@ jobs:
         AWS_BUCKET_KEY_NAME: ${{ secrets.AWS_BUCKET_KEY_NAME }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
         AWS_TABLE: ${{ secrets.AWS_TABLE }}
-      run: terraform init -var ssh_public_key=${{ github.event.inputs.pub_ssh_key }} -backend-config="bucket=${AWS_BUCKET_NAME}" -backend-config="key=${AWS_BUCKET_KEY_NAME}" -backend-config="region=${AWS_REGION}" -backend-config="dynamodb_table=${AWS_TABLE}"
+      run: terraform init -backend-config="bucket=${AWS_BUCKET_NAME}" -backend-config="key=${AWS_BUCKET_KEY_NAME}" -backend-config="region=${AWS_REGION}" -backend-config="dynamodb_table=${AWS_TABLE}"
 
     - name: Terraform Validate
       id: validate
