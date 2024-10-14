@@ -1,4 +1,4 @@
-# Task 2: Basic Infrastructure Configuration
+# Task 2: Basic Infrastructure Configuration.
 
 ## Objective
 
