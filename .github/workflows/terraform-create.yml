@@ -53,7 +53,7 @@ jobs:
 
     - name: Terraform Plan
       id: plan
-      run: terraform plan -var ssh_public_key=${{ github.event.inputs.pub_ssh_key }} -no-color
+      run: terraform plan -var ssh_public_key="${{ github.event.inputs.pub_ssh_key }}" -no-color
       continue-on-error: true
 
     - name: Terraform Plan Status
@@ -61,6 +61,6 @@ jobs:
       run: exit 1
 
     - name: Terraform Apply
-      run: terraform apply -var ssh_public_key=${{ github.event.inputs.pub_ssh_key }} -auto-approve
+      run: terraform apply -var ssh_public_key="${{ github.event.inputs.pub_ssh_key }}" -auto-approve
       env:
         TF_VAR_ssh_public_key: ${{ secrets.TF_SSH }}
